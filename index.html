@@ -9,28 +9,28 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #121212;
-            
-            /* Center everything */
+            background: radial-gradient(circle at center, #1a1a1a, #0a0a0a);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-
             text-align: center;
+            color: #ccc;
         }
 
         header {
+            max-width: 600px;
             padding: 20px;
         }
 
         h1 {
-            font-size: 10.5rem;
+            font-size: 8rem;
             margin: 0;
+            letter-spacing: -2px;
         }
 
         .larp {
-            color: #000;
+            color: #111;
         }
 
         .lol {
@@ -39,41 +39,41 @@
                 0 0 5px #cc33ff,
                 0 0 10px #cc33ff,
                 0 0 20px #cc33ff,
-                0 0 30px #cc33ff,
-                0 0 50px #ff00ff,
-                0 0 80px #ff00ff;
+                0 0 40px #ff00ff;
         }
 
         p {
             font-size: 1.2rem;
-            color: #555;
-            margin-top: 10px;
+            color: #888;
+            margin: 20px 0 30px;
+        }
+
+        .button-box {
+            display: inline-block;
+            border: 2px solid #fff;
+            padding: 4px;
         }
 
         .button {
-            display: block;
-            width: fit-content;
-            margin: 20px auto;
-            background: #000;
+            display: inline-block;
+            padding: 12px 28px;
+            background: transparent; /* ← key change */
             color: white;
             text-decoration: none;
             font-weight: bold;
-            padding: 12px 24px;
-            transition: 0.3s;
+            transition: all 0.2s ease;
         }
 
         .button:hover {
-            background: #a800cc;
-            transform: scale(1.05);
+            color: #cc33ff;
         }
 
         footer {
             position: absolute;
             bottom: 20px;
             width: 100%;
-            color: #CC33FF;
+            color: #666;
             font-size: 0.9rem;
-            text-align: center;
         }
     </style>
 </head>
@@ -85,11 +85,13 @@
             <span class="larp">larp</span><span class="lol">.lol</span>
         </h1>
 
-        <p>Welcome.</p>
+        <p>Welcome. Click below to begin.</p>
 
-        <a class="button" href="larp jokes dumbass" download>
-            Get started.
-        </a>
+        <div class="button-box">
+            <a class="button" href="larp jokes dumbass" download>
+                Get started
+            </a>
+        </div>
     </header>
 
     <footer>
