@@ -3,152 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>larp.lol</title>
+<title>larp.lol menu</title>
 
 <style>
-    body {
-        margin: 0;
-        background: #0b0b0b;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+body {
+    margin: 0;
+    background: #0b0b0b;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
 
-    .bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background:
-            linear-gradient(#111 1px, transparent 1px),
-            linear-gradient(90deg, #111 1px, transparent 1px);
-        background-size: 60px 60px;
-        opacity: 0.35;
-        z-index: 0;
-    }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .wrapper {
-        position: relative;
-        text-align: center;
-        z-index: 2;
-    }
+h1 {
+    margin-bottom: 10px;
+}
 
-    h1 {
-        margin-bottom: 10px;
-        font-size: 32px;
-    }
+p {
+    color: #555;
+    margin-bottom: 20px;
+}
 
-    p {
-        color: #555;
-        margin-bottom: 25px;
-    }
+/* MENU */
+.menu {
+    width: 320px;
+}
 
-    .menu {
-        position: relative;
-        display: inline-block;
-        transform: scale(0.75);
-    }
+/* TITLE */
+.menu-title {
+    font-size: 14px;
+    margin-bottom: 6px;
+    opacity: 0.8;
+}
 
-    .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 30px;
-        opacity: 0.6;
-    }
+/* ITEMS */
+.item {
+    background: #6a1bb1;
+    padding: 10px;
+    margin: 6px 0;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px #3b0b66;
+    transition: 0.15s;
+}
 
-    .arrow.left { left: -50px; }
-    .arrow.right { right: -50px; }
+.item:hover {
+    background: #8a2be2;
+    transform: scale(1.05);
+}
 
-    .small {
-        font-size: 11px;
-        opacity: 0.7;
-        margin-bottom: 8px;
-    }
+.disconnect {
+    background: #4a148c;
+}
 
-    .box {
-        background: #6a1bb1;
-        color: white;
-        padding: 8px 50px;
-        margin: 5px 0;
-        font-size: 16px;
-        font-weight: bold;
-        box-shadow: inset 0 0 0 2px #3b0b66;
-        transition: 0.15s;
-    }
+/* ARROWS */
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
 
-    .box:hover {
-        background: #8a2be2;
-        transform: scale(1.05);
-    }
+.arrow {
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.7;
+}
 
-    /* NON-BUTTON TEXT ITEM */
-    .text-item {
-        padding: 8px 50px;
-        margin: 5px 0;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ddd;
-        opacity: 0.9;
-    }
+/* FOOTER BUTTONS */
+.footer {
+    margin-top: 15px;
+}
 
-    .button-box {
-        display: inline-block;
-        border: 2px solid #fff;
-        padding: 4px;
-        margin: 10px 5px;
-    }
+.button-box {
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 4px;
+    margin: 5px;
+}
 
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        text-decoration: none;
-        color: white;
-        transition: 0.2s;
-    }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
 
-    .button:hover {
-        color: #cc33ff;
-    }
+.button:hover {
+    color: #cc33ff;
+}
 
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-
 <div class="wrapper">
 
     <h1>Get Started</h1>
-
     <p>This is where the chaos starts</p>
 
-    <!-- MENU -->
     <div class="menu">
+        <div class="menu-title" id="menuTitle">MAIN MENU</div>
 
-        <div class="arrow left">&lt;</div>
-        <div class="arrow right">&gt;</div>
+        <!-- always visible -->
+        <div class="item disconnect" onclick="goBack()">Disconnect</div>
 
-        <div class="small">Returns you back to the main cast</div>
+        <!-- dynamic items -->
+        <div id="menuItems"></div>
 
-        <div class="box">Disconnect</div>
-
-        <!-- FIXED LINE (NOT A BUTTON ANYMORE) -->
-        <div class="text-item">larps.lol</div>
-
-        <div class="box">Settings</div>
-        <div class="box">Movement mods</div>
-        <div class="box">Player mods</div>
-        <div class="box">Other player mods</div>
-        <div class="box">Item mods</div>
+        <!-- arrows -->
+        <div class="arrows">
+            <div class="arrow" onclick="prevPage()"><</div>
+            <div class="arrow" onclick="nextPage()">></div>
+        </div>
     </div>
 
-    <!-- BUTTONS UNDER MENU -->
-    <div>
+    <!-- FOOTER BUTTONS -->
+    <div class="footer">
         <div class="button-box">
             <a class="button" href="https://discord.gg/KPxcaseC74" target="_blank">
                 Download
@@ -163,6 +144,96 @@
     </div>
 
 </div>
+
+<script>
+const menus = {
+main: ["SETTINGS","MOVEMENT MODS","PLAYER MODS","OTHER PLAYER MODS",
+"ITEM MODS","SPAWNING","RPC","MISC","FUN","PREFAB"],
+
+settings: ["Credit to Harry","Credit to Alex","Change Item ID",
+"Copy Right Hand ID","Change Mob ID","Change VFX Type",
+"Lavateor","Unlock All","Give Dev"],
+
+movement: ["Fly","Joystick Fly","Long Arms",
+"Longer Arms","Longerer Arms","Longererer Arms"],
+
+player: ["Invisible","Invincible","Set Name: /4tmh",
+"Set Name: larp.lol dc","Set Name: :3","Set Name: Moony","Set Name: Moony2HP"],
+
+other: ["Whitelist Mods"],
+
+items: ["Custom Hue (Held Item)","Custom Saturation (Held Item)",
+"Custom Scale (Held Item)","Random Held Item","Random All Items"],
+
+spawning: ["Spawn Items","Arena Pistol","Arena Shotgun",
+"Spawn Filled Bag","Spawn Filled Quiver","Filled Bags Giveaway",
+"Filled Quiver Giveaway","Bag Giveaway (BGiveaway)"],
+
+rpc: ["Disintegrate Gun","Void Gun","Fling Gun",
+"Break Movement Gun","Break Movement All","UP All"],
+
+misc: ["Stash Dupe","Infinite Ammo","Rapid Fire",
+"Give Money","Start Arena","End Arena"],
+
+fun: ["Snowball Minigun","Snowball Cannon","Snowball Spam"],
+
+prefab: ["Spawn Prefab","Rocket Launcher","Grenade Spam"]
+};
+
+let currentMenu = "main";
+let page = 0;
+
+function render() {
+    const container = document.getElementById("menuItems");
+    const title = document.getElementById("menuTitle");
+
+    container.innerHTML = "";
+    title.innerText = currentMenu.toUpperCase();
+
+    let items = menus[currentMenu];
+    let start = page * 8;
+    let slice = items.slice(start, start + 8);
+
+    slice.forEach(text => {
+        let div = document.createElement("div");
+        div.className = "item";
+        div.innerText = text;
+
+        div.onclick = () => {
+            if (currentMenu === "main") {
+                currentMenu = text.toLowerCase().replace(/ /g, "").replace("mods","");
+                page = 0;
+                render();
+            }
+        };
+
+        container.appendChild(div);
+    });
+}
+
+function goBack() {
+    currentMenu = "main";
+    page = 0;
+    render();
+}
+
+function nextPage() {
+    let items = menus[currentMenu];
+    if ((page + 1) * 8 < items.length) {
+        page++;
+        render();
+    }
+}
+
+function prevPage() {
+    if (page > 0) {
+        page--;
+        render();
+    }
+}
+
+render();
+</script>
 
 </body>
 </html>
