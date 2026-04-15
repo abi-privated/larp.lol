@@ -1,132 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>larp.lol</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>larp.lol</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: radial-gradient(circle at center, #1a1a1a, #0a0a0a);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            overflow: hidden;
-        }
+<style>
+    body {
+        margin: 0;
+        background: #0b0b0b;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
 
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            z-index: 2;
-            position: relative;
-        }
+    /* fake game background grid */
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background:
+            linear-gradient(#111 1px, transparent 1px),
+            linear-gradient(90deg, #111 1px, transparent 1px);
+        background-size: 60px 60px;
+        opacity: 0.4;
+    }
 
-        h1 {
-            color: #fff;
-            margin-bottom: 20px;
-        }
+    /* MENU WRAPPER */
+    .menu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 
-        p {
-            color: #444;
-            line-height: 1.6;
-        }
+    /* SIDE ARROWS */
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 40px;
+        opacity: 0.6;
+        user-select: none;
+    }
 
-        .button-box {
-            display: inline-block;
-            border: 2px solid #fff;
-            padding: 4px;
-            margin-top: 15px;
-        }
+    .arrow.left { left: -70px; }
+    .arrow.right { right: -70px; }
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            transition: 0.2s;
-        }
+    /* MENU BOXES */
+    .box {
+        background: #6a1bb1;
+        color: white;
+        padding: 10px 60px;
+        margin: 6px 0;
+        font-weight: bold;
+        font-size: 18px;
+        box-shadow: inset 0 0 0 2px #3b0b66;
+        transition: 0.15s;
+    }
 
-        .button:hover {
-            color: #cc33ff;
-        }
+    .box:hover {
+        background: #8a2be2;
+        transform: scale(1.05);
+    }
 
-        /* ===== MENU OVERLAY ===== */
+    /* CATEGORY HEADER STYLE */
+    .small {
+        font-size: 12px;
+        opacity: 0.7;
+        margin-bottom: 10px;
+        color: white;
+    }
 
-        .menu {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-2deg);
-            text-align: center;
-            z-index: 1;
-        }
-
-        .menu-title {
-            color: white;
-            font-size: 12px;
-            margin-bottom: 10px;
-            opacity: 0.7;
-        }
-
-        .menu-box {
-            background: #6a1bb1;
-            color: white;
-            padding: 10px 50px;
-            margin: 6px 0;
-            font-size: 18px;
-            font-weight: bold;
-            text-shadow: 0 2px 0 rgba(0,0,0,0.3);
-            box-shadow: inset 0 0 0 2px #3b0b66;
-            transition: 0.15s;
-        }
-
-        .menu-box:hover {
-            background: #8a2be2;
-            transform: scale(1.05);
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
-    <!-- MENU OVERLAY -->
-    <div class="menu">
-        <div class="menu-title">Returns you back to the main cast</div>
+<div class="bg"></div>
 
-        <div class="menu-box">Disconnect</div>
-        <div class="menu-box">larps.lol [1]</div>
-        <div class="menu-box">Settings</div>
-        <div class="menu-box">Movement mods</div>
-        <div class="menu-box">Player mods</div>
-        <div class="menu-box">Other player mods</div>
-        <div class="menu-box">Item mods</div>
-    </div>
+<div class="menu">
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <h1>Get Started</h1>
+    <div class="arrow left">&lt;</div>
+    <div class="arrow right">&gt;</div>
 
-        <p>
-            This is where the chaos starts
-        </p>
+    <div class="small">Returns you back to the main cast</div>
 
-        <div class="button-box">
-            <a class="button" href="https://discord.gg/KPxcaseC74" target="_blank">
-                Download
-            </a>
-        </div>
+    <div class="box">Disconnect</div>
+    <div class="box">harmony67 [1]</div>
+    <div class="box">Settings</div>
 
-        <div class="button-box">
-            <a class="button" href="index.html">
-                Back
-            </a>
-        </div>
-    </div>
+    <div class="box">Movement mods</div>
+    <div class="box">Player mods</div>
+    <div class="box">Other player mods</div>
+    <div class="box">Item mods</div>
+
+    <div class="box">Spawning</div>
+    <div class="box">RPC</div>
+    <div class="box">Misc</div>
+
+</div>
 
 </body>
 </html>
